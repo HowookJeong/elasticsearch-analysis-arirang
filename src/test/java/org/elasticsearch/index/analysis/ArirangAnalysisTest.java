@@ -12,7 +12,6 @@ import org.elasticsearch.index.Index;
 import org.elasticsearch.index.IndexNameModule;
 import org.elasticsearch.index.settings.IndexSettingsModule;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
-import org.elasticsearch.test.ESTestCase;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
@@ -23,13 +22,14 @@ import static org.hamcrest.Matchers.instanceOf;
 /**
  * Created by hwjeong on 2015. 11. 3..
  */
-public class ArirangAnalysisTest extends ESTestCase {
+//public class ArirangAnalysisTest extends ESTestCase {
+public class ArirangAnalysisTest {
 
   @Test
   public void testArirangAnalysis() {
     Index index = new Index("test");
     Settings settings = settingsBuilder()
-        .put("path.home", createTempDir())
+        .put("path.home", "/Users/hwjeong/temp/tmp")
         .put(IndexMetaData.SETTING_VERSION_CREATED, Version.CURRENT)
         .build();
     Injector parentInjector = new ModulesBuilder().add(new SettingsModule(EMPTY_SETTINGS), new EnvironmentModule(new Environment(settings))).createInjector();
