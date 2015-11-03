@@ -22,19 +22,19 @@
     <org.slf4j.version>1.6.2</org.slf4j.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>oss.sonatype.org</id>
-      <name>OSS Sonatype</name>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <url>http://oss.sonatype.org/content/repositories/releases/</url>
-    </repository>
-  </repositories>
+  <!--<repositories>-->
+    <!--<repository>-->
+      <!--<id>oss.sonatype.org</id>-->
+      <!--<name>OSS Sonatype</name>-->
+      <!--<releases>-->
+        <!--<enabled>true</enabled>-->
+      <!--</releases>-->
+      <!--<snapshots>-->
+        <!--<enabled>true</enabled>-->
+      <!--</snapshots>-->
+      <!--<url>http://oss.sonatype.org/content/repositories/releases/</url>-->
+    <!--</repository>-->
+  <!--</repositories>-->
 
   <dependencies>
     <dependency>
@@ -58,18 +58,12 @@
       <scope>runtime</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.3.1</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-      <version>${org.slf4j.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.testng</groupId>-->
+      <!--<artifactId>testng</artifactId>-->
+      <!--<version>6.3.1</version>-->
+      <!--<scope>test</scope>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -119,6 +113,82 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/assemblies/plugin.xml</descriptor>
+          </descriptors>
+          <finalName>${project.name}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>tarball</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>docs</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <!-- build javadoc jars per jar for publishing to maven -->
+                <id>module-javadocs</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <destDir>${project.build.directory}</destDir>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>src</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <!-- builds source jars and attaches them to the project for publishing -->
+                <id>esbase-java-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
