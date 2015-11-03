@@ -1,7 +1,5 @@
 package org.elasticsearch.index.analysis;
 
-import java.io.Reader;
-
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.ko.KoreanTokenizer;
 import org.elasticsearch.common.inject.Inject;
@@ -18,7 +16,7 @@ public class ArirangTokenizerFactory extends AbstractTokenizerFactory {
     }
 
     @Override
-    public Tokenizer create(Reader reader) {
-        return new KoreanTokenizer(reader);
+    public Tokenizer create() {
+        return new KoreanTokenizer();
     }
 }

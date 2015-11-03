@@ -2,10 +2,10 @@ package org.elasticsearch.plugin.analysis.arirang;
 
 import org.elasticsearch.index.analysis.AnalysisModule;
 import org.elasticsearch.index.analysis.ArirangAnalysisBinderProcessor;
-import org.elasticsearch.plugins.AbstractPlugin;
+import org.elasticsearch.plugins.Plugin;
 
 
-public class AnalysisArirangPlugin extends AbstractPlugin {
+public class AnalysisArirangPlugin extends Plugin {
 
     @Override
     public String name() {
