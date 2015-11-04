@@ -73,8 +73,8 @@
     </dependency>
 
     <dependency>
-      <groupId>arirang.lucene-analyzer-5.0</groupId>
-      <artifactId>arirang.lucene-analyzer-5.0</artifactId>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>arirang.lucene-analyzer</artifactId>
       <version>5.0-1.0.0</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-5.0-1.0.0.jar</systemPath>
