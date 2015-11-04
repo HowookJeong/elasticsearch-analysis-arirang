@@ -19,5 +19,10 @@
       <source>target/elasticsearch-analysis-arirang-1.0.0.jar</source>
       <outputDirectory>analysis-arirang</outputDirectory>
     </file>
+    <file>
+      <source>${basedir}/src/main/resources/plugin-descriptor.properties</source>
+      <outputDirectory>analysis-arirang</outputDirectory>
+      <filtered>true</filtered>
+    </file>
   </files>
 </assembly>
