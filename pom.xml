@@ -4,7 +4,7 @@
 
   <groupId>org.elasticsearch</groupId>
   <artifactId>elasticsearch-analysis-arirang</artifactId>
-  <version>1.0.0</version>
+  <version>2.2.0</version>
   <packaging>jar</packaging>
 
   <name>elasticsearch-analysis-arirang</name>
@@ -17,8 +17,8 @@
   <!--</parent>-->
 
   <properties>
-    <elasticsearch.version>2.0.0</elasticsearch.version>
-    <lucene.version>5.2.1</lucene.version>
+    <elasticsearch.version>2.2.0</elasticsearch.version>
+    <lucene.version>5.4.1</lucene.version>
     <org.slf4j.version>1.6.2</org.slf4j.version>
   </properties>
 
@@ -27,14 +27,12 @@
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-core</artifactId>
       <version>${lucene.version}</version>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>
       <groupId>org.elasticsearch</groupId>
       <artifactId>elasticsearch</artifactId>
       <version>${elasticsearch.version}</version>
-      <scope>compile</scope>
     </dependency>
 
     <!--<dependency>-->
@@ -66,18 +64,18 @@
     <dependency>
       <groupId>com.argo.arirang</groupId>
       <artifactId>morph</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.3</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/lib/arirang-morph-1.0.0.jar</systemPath>
+      <systemPath>${project.basedir}/lib/arirang-morph-1.0.3.jar</systemPath>
       <optional>false</optional>
     </dependency>
 
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>arirang.lucene-analyzer</artifactId>
-      <version>5.0-1.0.0</version>
+      <version>5.4.1-1.0.0</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-5.0-1.0.0.jar</systemPath>
+      <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-5.4.1-1.0.0.jar</systemPath>
       <optional>false</optional>
     </dependency>
 
@@ -103,7 +101,7 @@
     <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-test-framework</artifactId>
-      <version>5.2.1</version>
+      <version>${lucene.version}</version>
       <scope>test</scope>
       <exclusions>
         <exclusion>
@@ -115,7 +113,7 @@
     <dependency>
       <groupId>org.elasticsearch</groupId>
       <artifactId>elasticsearch</artifactId>
-      <version>2.0.0</version>
+      <version>${elasticsearch.version}</version>
       <type>test-jar</type>
       <scope>test</scope>
     </dependency>

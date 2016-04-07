@@ -17,6 +17,7 @@ import org.elasticsearch.env.EnvironmentModule;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.index.IndexNameModule;
 import org.elasticsearch.index.settings.IndexSettingsModule;
+import org.elasticsearch.index.settings.IndexSettingsService;
 import org.elasticsearch.indices.analysis.IndicesAnalysisService;
 import org.elasticsearch.plugin.analysis.arirang.AnalysisArirangPlugin;
 import org.junit.Test;
@@ -106,9 +107,11 @@ public class ArirangAnalyzerTest {
         analysisModule)
         .createChildInjector(parentInjector);
 
+    IndexSettingsService indexSettingsService = new IndexSettingsService(index, settings);
+
     AnalysisService analysisService = injector.getInstance(AnalysisService.class);
     TokenFilterFactory tokenFilter = analysisService.tokenFilter("arirang_filter");
-    Tokenizer tokenizer = (new ArirangTokenizerFactory(index,settings,null,settings)).create();
+    Tokenizer tokenizer = (new ArirangTokenizerFactory(index,indexSettingsService,null,settings)).create();
 
     tokenizer.setReader(new StringReader(query));
     TokenStream tokenStream = tokenFilter.create(tokenizer);
@@ -143,10 +146,12 @@ public class ArirangAnalyzerTest {
         .put(IndexMetaData.SETTING_VERSION_CREATED, Version.CURRENT)
         .build();
 
-    ArirangTokenizerFactory arirangTokenizerFactory = new ArirangTokenizerFactory(index, settings, null, settings);
+    IndexSettingsService indexSettingsService = new IndexSettingsService(index, settings);
+
+    ArirangTokenizerFactory arirangTokenizerFactory = new ArirangTokenizerFactory(index, indexSettingsService, null, settings);
     Tokenizer tokenizer = arirangTokenizerFactory.create();
-    ArirangTokenFilterFactory arirangTokenFilterFactory = new ArirangTokenFilterFactory(index, settings, null, settings);
-    LowerCaseTokenFilterFactory lowerCaseTokenFilterFactory = new LowerCaseTokenFilterFactory(index, settings, null, settings);
+    ArirangTokenFilterFactory arirangTokenFilterFactory = new ArirangTokenFilterFactory(index, indexSettingsService, null, settings);
+    LowerCaseTokenFilterFactory lowerCaseTokenFilterFactory = new LowerCaseTokenFilterFactory(index, indexSettingsService, null, settings);
     TokenStream tokenStream;
 
     tokenizer.setReader(new StringReader(query));
