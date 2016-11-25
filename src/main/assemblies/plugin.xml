@@ -2,26 +2,26 @@
 <assembly>
   <id>plugin</id>
   <formats>
-      <format>zip</format>
+    <format>zip</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
 
   <files>
     <file>
-      <source>lib/arirang.lucene-analyzer-5.0-1.0.0.jar</source>
-      <outputDirectory>analysis-arirang</outputDirectory>
+      <source>lib/arirang.lucene-analyzer-6.0-1.1.0.jar</source>
+      <outputDirectory>elasticsearch</outputDirectory>
     </file>
     <file>
-      <source>lib/arirang-morph-1.0.0.jar</source>
-      <outputDirectory>analysis-arirang</outputDirectory>
+      <source>lib/arirang-morph-1.1.0.jar</source>
+      <outputDirectory>elasticsearch</outputDirectory>
     </file>
     <file>
-      <source>target/elasticsearch-analysis-arirang-1.0.0.jar</source>
-      <outputDirectory>analysis-arirang</outputDirectory>
+      <source>target/elasticsearch-analysis-arirang-5.0.1.jar</source>
+      <outputDirectory>elasticsearch</outputDirectory>
     </file>
     <file>
       <source>${basedir}/src/main/resources/plugin-descriptor.properties</source>
-      <outputDirectory>analysis-arirang</outputDirectory>
+      <outputDirectory>elasticsearch</outputDirectory>
       <filtered>true</filtered>
     </file>
   </files>
