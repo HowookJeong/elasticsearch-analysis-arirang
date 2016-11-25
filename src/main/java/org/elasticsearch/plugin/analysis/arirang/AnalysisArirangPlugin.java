@@ -1,23 +1,35 @@
 package org.elasticsearch.plugin.analysis.arirang;
 
-import org.elasticsearch.index.analysis.AnalysisModule;
-import org.elasticsearch.index.analysis.ArirangAnalysisBinderProcessor;
+import org.apache.lucene.analysis.Analyzer;
+import org.elasticsearch.index.analysis.*;
+import org.elasticsearch.index.analysis.ArirangTokenFilterFactory;
+import org.elasticsearch.indices.analysis.AnalysisModule.AnalysisProvider;
+import org.elasticsearch.plugins.AnalysisPlugin;
 import org.elasticsearch.plugins.Plugin;
 
+import java.util.HashMap;
+import java.util.Map;
 
-public class AnalysisArirangPlugin extends Plugin {
+import static java.util.Collections.singletonMap;
+
+
+public class AnalysisArirangPlugin extends Plugin implements AnalysisPlugin {
 
     @Override
-    public String name() {
-        return "analysis-arirang";
+    public Map<String, AnalysisProvider<TokenFilterFactory>> getTokenFilters() {
+        return singletonMap("arirang_filter", ArirangTokenFilterFactory::new);
     }
 
     @Override
-    public String description() {
-        return "Korean Analyzer";
+    public Map<String, AnalysisProvider<TokenizerFactory>> getTokenizers() {
+        Map<String, AnalysisProvider<TokenizerFactory>> extra = new HashMap<>();
+        extra.put("arirang_tokenizer", ArirangTokenizerFactory::new);
+
+        return extra;
     }
 
-    public void onModule(AnalysisModule module) {
-        module.addProcessor(new ArirangAnalysisBinderProcessor());
+    @Override
+    public Map<String, AnalysisProvider<AnalyzerProvider<? extends Analyzer>>> getAnalyzers() {
+        return singletonMap("arirang_analyzer", ArirangAnalyzerProvider::new);
     }
 }
