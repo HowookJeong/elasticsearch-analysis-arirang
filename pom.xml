@@ -13,7 +13,7 @@
   <properties>
     <java.version>1.8</java.version>
     <elasticsearch.version>5.5.0</elasticsearch.version>
-    <lucene.version>6.5.1</lucene.version>
+    <lucene.version>6.6.0</lucene.version>
     <org.slf4j.version>1.6.2</org.slf4j.version>
   </properties>
 
@@ -49,7 +49,7 @@
     </dependency>
 
     <dependency>
-      <groupId>com.argo.arirang</groupId>
+      <groupId>com.argo</groupId>
       <artifactId>morph</artifactId>
       <version>1.1.0</version>
       <scope>system</scope>
@@ -58,9 +58,9 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>arirang.lucene-analyzer</artifactId>
-      <version>6.5.1-1.1.0</version>
+      <groupId>com.argo</groupId>
+      <artifactId>arirang.lucene-analyzer-6.5.1</artifactId>
+      <version>1.1.0</version>
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-6.5.1-1.1.0.jar</systemPath>
       <optional>false</optional>
@@ -121,7 +121,6 @@
       <artifactId>jna</artifactId>
       <version>4.1.0</version>
     </dependency>
-
   </dependencies>
 
   <build>
