@@ -1,5 +1,9 @@
 package org.elasticsearch.index.analysis;
 
+//import static org.elasticsearch.test.ESTestCase.createAnalysisService;
+
+import java.io.IOException;
+import java.io.StringReader;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.ko.KoreanFilter;
@@ -9,25 +13,22 @@ import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.plugin.analysis.arirang.AnalysisArirangPlugin;
-
-import java.io.StringReader;
-
-import static org.elasticsearch.test.ESTestCase.createAnalysisService;
+import org.elasticsearch.test.ESTestCase;
 
 /**
  * Created by hwjeong on 2015. 11. 3..
  */
-public class ArirangAnalyzerTest {
+public class ArirangAnalyzerTest extends ESTestCase {
 
 //  public String query = "이것은 루씬한국어 형태소 분석기 플러그인 입니다.";
   public String query = "[한국 엘라스틱서치 사용자 그룹의 HENRY 입니다.";
 
   public void testArirangAnalyzerNamedAnalyzer() throws Exception {
     System.out.println("####### testArirangAnalyzerNamedAnalyzer #######");
-    final AnalysisService analysisService = createAnalysisService(new Index("test", "_na_"), Settings.EMPTY,
-      new AnalysisArirangPlugin());
 
-    NamedAnalyzer namedAnalyzer = analysisService.analyzer("arirang");
+    TestAnalysis analysis = createTestAnalysis();
+    IndexAnalyzers indexAnalyzers = analysis.indexAnalyzers;
+    NamedAnalyzer namedAnalyzer = indexAnalyzers.get("arirang");
 
     TokenStream tokenStream = namedAnalyzer.tokenStream(null, query);
 
@@ -49,11 +50,9 @@ public class ArirangAnalyzerTest {
 
   public void testArirangAnalyzerTokenFilter() throws Exception {
     System.out.println("####### testArirangAnalyzerTokenFilter #######");
-    final AnalysisService analysisService = createAnalysisService(new Index("test", "_na_"), Settings.EMPTY,
-      new AnalysisArirangPlugin());
-
-    TokenizerFactory tokenizerFactory = analysisService.tokenizer("arirang_tokenizer");
-    TokenFilterFactory tokenFilter = analysisService.tokenFilter("arirang_filter");
+    TestAnalysis analysis = createTestAnalysis();
+    TokenizerFactory tokenizerFactory = analysis.tokenizer.get("arirang_tokenizer");
+    TokenFilterFactory tokenFilter = analysis.tokenFilter.get("arirang_tokenizer");
     Tokenizer tokenizer = tokenizerFactory.create();
 
     tokenizer.setReader(new StringReader(query));
@@ -78,15 +77,13 @@ public class ArirangAnalyzerTest {
   public void testArirangCustomAnalyzer() throws Exception {
     System.out.println("####### testArirangCustomAnalyzer #######");
 
-    final AnalysisService analysisService = createAnalysisService(new Index("test", "_na_"), Settings.EMPTY,
-      new AnalysisArirangPlugin());
-
-    TokenizerFactory tokenizerFactory = analysisService.tokenizer("arirang_tokenizer");
-    TokenFilterFactory tokenFilter = analysisService.tokenFilter("arirang_filter");
+    TestAnalysis analysis = createTestAnalysis();
+    TokenizerFactory tokenizerFactory = analysis.tokenizer.get("arirang_tokenizer");
+    TokenFilterFactory tokenFilter = analysis.tokenFilter.get("arirang_tokenizer");
     Tokenizer tokenizer = tokenizerFactory.create();
 
 
-    TokenFilterFactory lowerCaseTokenFilterFactory = analysisService.tokenFilter("lowercase");
+    TokenFilterFactory lowerCaseTokenFilterFactory = analysis.tokenFilter.get("lowercase");
     TokenStream tokenStream;
 
     tokenizer.setReader(new StringReader(query));
@@ -133,5 +130,9 @@ public class ArirangAnalyzerTest {
     } finally {
       tokenStream.close();
     }
+  }
+
+  private static TestAnalysis createTestAnalysis() throws IOException {
+    return createTestAnalysis(new Index("test", "_na_"), Settings.EMPTY, new AnalysisArirangPlugin());
   }
 }
