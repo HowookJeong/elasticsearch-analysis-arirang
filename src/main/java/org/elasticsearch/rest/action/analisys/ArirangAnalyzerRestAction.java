@@ -21,6 +21,11 @@ public class ArirangAnalyzerRestAction extends BaseRestHandler {
   }
 
   @Override
+  public String getName() {
+    return "arirang_dictionary_reload";
+  }
+
+  @Override
   protected RestChannelConsumer prepareRequest(RestRequest restRequest, NodeClient client) throws IOException {
     try {
       DictionaryUtil.loadDictionary();
