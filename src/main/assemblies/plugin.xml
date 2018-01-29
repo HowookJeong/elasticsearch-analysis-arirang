@@ -8,7 +8,7 @@
 
   <files>
     <file>
-      <source>lib/arirang.lucene-analyzer-6.5.1-1.1.0.jar</source>
+      <source>lib/arirang.lucene-analyzer-6.6.0-1.1.0.jar</source>
       <outputDirectory>elasticsearch</outputDirectory>
     </file>
     <file>
