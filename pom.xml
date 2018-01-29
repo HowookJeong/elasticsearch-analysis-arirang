@@ -62,7 +62,7 @@
       <artifactId>arirang.lucene-analyzer-6.5.1</artifactId>
       <version>1.1.0</version>
       <scope>system</scope>
-      <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-6.5.1-1.1.0.jar</systemPath>
+      <systemPath>${project.basedir}/lib/arirang.lucene-analyzer-6.6.0-1.1.0.jar</systemPath>
       <optional>false</optional>
     </dependency>
 
