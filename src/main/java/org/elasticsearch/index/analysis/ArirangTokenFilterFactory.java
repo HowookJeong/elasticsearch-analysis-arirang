@@ -8,12 +8,16 @@ import org.elasticsearch.index.IndexSettings;
 
 public class ArirangTokenFilterFactory extends AbstractTokenFilterFactory {
 
+    private boolean bigrammable;
+
     public ArirangTokenFilterFactory(IndexSettings indexSettings, Environment env, String name, Settings settings) {
         super(indexSettings, name, settings);
+
+        bigrammable = settings.getAsBoolean("bigrammable", false);
     }
 
     @Override
     public TokenStream create(TokenStream tokenStream) {
-        return new KoreanFilter(tokenStream);
+        return new KoreanFilter(tokenStream, bigrammable);
     }
 }
