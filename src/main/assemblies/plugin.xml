@@ -9,19 +9,19 @@
   <files>
     <file>
       <source>lib/arirang.lucene-analyzer-7.3.1-1.1.0.jar</source>
-      <outputDirectory>elasticsearch</outputDirectory>
+      <!--<outputDirectory>arirang-analysis</outputDirectory>-->
     </file>
     <file>
       <source>lib/arirang-morph-1.1.0.jar</source>
-      <outputDirectory>elasticsearch</outputDirectory>
+      <!--<outputDirectory>arirang-analysis</outputDirectory>-->
     </file>
     <file>
       <source>target/elasticsearch-analysis-arirang-6.3.0.jar</source>
-      <outputDirectory>elasticsearch</outputDirectory>
+      <!--<outputDirectory>arirang-analysis</outputDirectory>-->
     </file>
     <file>
       <source>${basedir}/src/main/resources/plugin-descriptor.properties</source>
-      <outputDirectory>elasticsearch</outputDirectory>
+      <!--<outputDirectory>arirang-analysis</outputDirectory>-->
       <filtered>true</filtered>
     </file>
   </files>
