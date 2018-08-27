@@ -1,4 +1,4 @@
-package org.elasticsearch.rest.action.analisys;
+package org.elasticsearch.rest.action.analysis;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 import org.apache.lucene.analysis.ko.utils.DictionaryUtil;

@@ -1,4 +1,4 @@
-package org.elasticsearch.rest.action.analisys;
+package org.elasticsearch.rest.action.analysis;
 
 import org.elasticsearch.common.inject.AbstractModule;
 
