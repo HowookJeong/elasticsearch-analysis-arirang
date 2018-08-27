@@ -1,9 +1,9 @@
-package org.elasticsearch.rest.action.analisys;
+package org.elasticsearch.rest.action.analysis;
 
 import org.elasticsearch.common.inject.AbstractModule;
 
 /**
- * Created by jeonghoug on 2016. 3. 16..
+ * Created by henry on 2018.8.28
  */
 public class ArirangAnalyzerRestModule  extends AbstractModule {
 
