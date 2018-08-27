@@ -10,7 +10,7 @@ import org.elasticsearch.rest.*;
 import java.io.IOException;
 
 /**
- * Created by jeonghoug on 2016. 3. 16..
+ * Created by henry
  */
 public class ArirangAnalyzerRestAction extends BaseRestHandler {
   @Inject

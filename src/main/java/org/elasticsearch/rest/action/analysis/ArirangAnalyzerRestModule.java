@@ -3,7 +3,7 @@ package org.elasticsearch.rest.action.analysis;
 import org.elasticsearch.common.inject.AbstractModule;
 
 /**
- * Created by jeonghoug on 2016. 3. 16..
+ * Created by henry on 2016. 3. 16..
  */
 public class ArirangAnalyzerRestModule  extends AbstractModule {
 

@@ -15,6 +15,9 @@ import org.elasticsearch.plugins.Plugin;
 import org.elasticsearch.rest.RestController;
 import org.elasticsearch.rest.RestHandler;
 
+/**
+ * Created by henry on 2016. 3. 16..
+ */
 public class ArirangAnalyzerRestHandlerPlugin  extends Plugin implements ActionPlugin {
 
   @Override
