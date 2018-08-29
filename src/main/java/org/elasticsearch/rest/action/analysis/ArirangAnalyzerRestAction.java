@@ -1,4 +1,4 @@
-package org.elasticsearch.rest.action.analisys;
+package org.elasticsearch.rest.action.analysis;
 
 import org.apache.lucene.analysis.ko.morph.MorphException;
 import org.apache.lucene.analysis.ko.utils.DictionaryUtil;
@@ -10,14 +10,19 @@ import org.elasticsearch.rest.*;
 import java.io.IOException;
 
 /**
- * Created by jeonghoug on 2016. 3. 16..
+ * Created by henry on 2018.8.28
  */
 public class ArirangAnalyzerRestAction extends BaseRestHandler {
   @Inject
   public ArirangAnalyzerRestAction(Settings settings, RestController controller) {
     super(settings);
 
-    controller.registerHandler(RestRequest.Method.GET, "/_arirang_dictionary_reload", this);
+    controller.registerHandler(RestRequest.Method.GET, "/_arirang_reload", this);
+  }
+
+  @Override
+  public String getName() {
+    return "arirang_reload_action";
   }
 
   @Override
