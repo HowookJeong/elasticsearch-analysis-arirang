@@ -17,7 +17,7 @@ public class ArirangAnalyzerRestAction extends BaseRestHandler {
   public ArirangAnalyzerRestAction(Settings settings, RestController controller) {
     super(settings);
 
-    controller.registerHandler(RestRequest.Method.GET, "/_arirang_dictionary_reload", this);
+    controller.registerHandler(RestRequest.Method.GET, "/_arirang_reload", this);
   }
 
   @Override
