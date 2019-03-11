@@ -16,7 +16,7 @@
       <!--<outputDirectory>arirang-analysis</outputDirectory>-->
     </file>
     <file>
-      <source>target/elasticsearch-analysis-arirang-6.5.0.jar</source>
+      <source>target/elasticsearch-analysis-arirang-6.5.3.jar</source>
       <!--<outputDirectory>arirang-analysis</outputDirectory>-->
     </file>
     <file>
