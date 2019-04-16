@@ -9,7 +9,7 @@ import org.elasticsearch.index.IndexSettings;
 public class ArirangTokenizerFactory extends AbstractTokenizerFactory {
 
     public ArirangTokenizerFactory(IndexSettings indexSettings, Environment env, String name, Settings settings) {
-        super(indexSettings, name, settings);
+        super(indexSettings, settings);
     }
 
     @Override
