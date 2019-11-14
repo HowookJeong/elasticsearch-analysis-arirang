@@ -1,0 +1,6 @@
+description=Arirang plugin
+version=7.4.2
+name=analysis-arirang
+classname=org.elasticsearch.plugin.analysis.arirang.AnalysisArirangPlugin
+java.version=1.8
+elasticsearch.version=7.4.2

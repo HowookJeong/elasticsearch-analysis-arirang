@@ -14,7 +14,7 @@
       <source>lib/arirang-morph-1.1.0.jar</source>
     </file>
     <file>
-      <source>target/elasticsearch-analysis-arirang-7.4.0.jar</source>
+      <source>target/elasticsearch-analysis-arirang-7.4.2.jar</source>
     </file>
     <file>
       <source>${basedir}/src/main/resources/plugin-descriptor.properties</source>

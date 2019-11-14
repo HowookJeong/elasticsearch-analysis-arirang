@@ -1,0 +1,6 @@
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/plugin/analysis/arirang/AnalysisArirangPlugin.java
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/index/analysis/ArirangTokenizerFactory.java
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/rest/action/analysis/ArirangAnalyzerRestHandlerPlugin.java
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/index/analysis/ArirangTokenFilterFactory.java
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/index/analysis/ArirangAnalyzerProvider.java
+/Users/force/Works/git/elasticsearch-analysis-arirang/src/main/java/org/elasticsearch/rest/action/analysis/ArirangAnalyzerRestAction.java
