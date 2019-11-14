@@ -15,8 +15,6 @@ import java.io.IOException;
 public class ArirangAnalyzerRestAction extends BaseRestHandler {
   @Inject
   public ArirangAnalyzerRestAction(Settings settings, RestController controller) {
-    super(settings);
-
     controller.registerHandler(RestRequest.Method.GET, "/_arirang_reload", this);
   }
 
