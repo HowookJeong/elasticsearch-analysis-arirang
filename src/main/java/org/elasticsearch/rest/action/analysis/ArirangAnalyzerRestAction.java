@@ -8,19 +8,28 @@ import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.rest.*;
 
 import java.io.IOException;
+import java.util.List;
+
+import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
+import static java.util.Collections.unmodifiableList;
+import static org.elasticsearch.rest.RestRequest.Method.GET;
+import static org.elasticsearch.rest.RestRequest.Method.POST;
 
 /**
  * Created by henry on 2018.8.28
  */
 public class ArirangAnalyzerRestAction extends BaseRestHandler {
-  @Inject
-  public ArirangAnalyzerRestAction(Settings settings, RestController controller) {
-    controller.registerHandler(RestRequest.Method.GET, "/_arirang_reload", this);
-  }
-
   @Override
   public String getName() {
     return "arirang_reload_action";
+  }
+
+  @Override
+  public List<Route> routes() {
+    return unmodifiableList(asList(
+            new Route(GET, "/_arirang/reload"),
+            new Route(POST, "/_arirang/reload")));
   }
 
   @Override
