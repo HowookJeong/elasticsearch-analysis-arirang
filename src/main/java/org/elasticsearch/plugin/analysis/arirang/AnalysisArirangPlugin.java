@@ -55,6 +55,6 @@ public class AnalysisArirangPlugin extends Plugin implements AnalysisPlugin, Act
       final IndexNameExpressionResolver indexNameExpressionResolver,
       final Supplier<DiscoveryNodes> nodesInCluster) {
 
-        return singletonList(new ArirangAnalyzerRestAction(settings, restController));
+        return singletonList(new ArirangAnalyzerRestAction());
     }
 }

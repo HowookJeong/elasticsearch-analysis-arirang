@@ -5,6 +5,7 @@ import org.elasticsearch.index.Index;
 import org.elasticsearch.plugin.analysis.arirang.AnalysisArirangPlugin;
 import org.elasticsearch.test.ESTestCase.TestAnalysis;
 import org.hamcrest.MatcherAssert;
+import org.junit.Test;
 
 import java.io.IOException;
 
@@ -16,6 +17,7 @@ import static org.hamcrest.Matchers.instanceOf;
  */
 public class ArirangAnalysisTest {
 
+  @Test
   public void testArirangAnalysis() throws IOException {
     final TestAnalysis analysisService = createTestAnalysis(new Index("test", "_na_"), Settings.EMPTY,
       new AnalysisArirangPlugin());
