@@ -1,6 +1,0 @@
-org/elasticsearch/plugin/analysis/arirang/AnalysisArirangPlugin.class
-org/elasticsearch/index/analysis/ArirangTokenizerFactory.class
-org/elasticsearch/index/analysis/ArirangAnalyzerProvider.class
-org/elasticsearch/rest/action/analysis/ArirangAnalyzerRestHandlerPlugin.class
-org/elasticsearch/rest/action/analysis/ArirangAnalyzerRestAction.class
-org/elasticsearch/index/analysis/ArirangTokenFilterFactory.class

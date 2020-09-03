@@ -8,13 +8,13 @@
 
   <files>
     <file>
-      <source>lib/arirang.lucene-analyzer-8.5.1-1.1.0.jar</source>
+      <source>lib/arirang.lucene-analyzer-8.6.2-1.1.0.jar</source>
     </file>
     <file>
       <source>lib/arirang-morph-1.1.0.jar</source>
     </file>
     <file>
-      <source>target/elasticsearch-analysis-arirang-7.8.0.jar</source>
+      <source>target/elasticsearch-analysis-arirang-7.9.0.jar</source>
     </file>
     <file>
       <source>${basedir}/src/main/resources/plugin-descriptor.properties</source>
