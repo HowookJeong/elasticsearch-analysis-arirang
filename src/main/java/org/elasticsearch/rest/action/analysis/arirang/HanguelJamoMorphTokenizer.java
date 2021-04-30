@@ -160,7 +160,10 @@ public class HanguelJamoMorphTokenizer {
       if(sourceChar >= 0xAC00) {
         jongIdx = (char)((sourceChar - 0xAC00)%28);
 
-        jongsung = jongsung + JONGSUNG[jongIdx];
+        // NUL 문자에 대한 제거
+        if ( (int)jongIdx != 0 ) {
+          jongsung = jongsung + JONGSUNG[jongIdx];
+        }
       } else {
         if (isPossibleCharacter(sourceChar) ) {
           jongsung = jongsung + sourceChar;
