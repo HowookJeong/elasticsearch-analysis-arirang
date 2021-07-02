@@ -3,15 +3,12 @@ package org.elasticsearch.rest.action.analysis;
 import org.apache.lucene.analysis.ko.morph.MorphException;
 import org.apache.lucene.analysis.ko.utils.DictionaryUtil;
 import org.elasticsearch.client.node.NodeClient;
-import org.elasticsearch.common.inject.Inject;
-import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.rest.*;
 
 import java.io.IOException;
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static java.util.Collections.singletonList;
 import static java.util.Collections.unmodifiableList;
 import static org.elasticsearch.rest.RestRequest.Method.GET;
 import static org.elasticsearch.rest.RestRequest.Method.POST;
