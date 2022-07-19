@@ -12,7 +12,7 @@ public class ArirangAnalyzerProvider extends AbstractIndexAnalyzerProvider<Korea
     private final KoreanAnalyzer analyzer;
 
     public ArirangAnalyzerProvider(IndexSettings indexSettings, Environment env, String name, Settings settings) throws IOException {
-        super(indexSettings, name, settings);
+        super(name, settings);
 
         analyzer = new KoreanAnalyzer();
     }
